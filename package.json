@@ -32,5 +32,9 @@
     "grunt-html-build": "^0.3.2",
     "karma": "^0.12.28",
     "load-grunt-tasks": "^1.0.0"
+  },
+  "scripts": {
+    "postinstall": "bower install",
+    "test": "grunt test"
   }
 }
