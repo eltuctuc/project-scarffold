@@ -19,7 +19,7 @@ module.exports = function (grunt) {
                     style: 'expanded'
                 },
                 files: {
-                    'wwww/css/main.css': 'wwww/scss/main.scss'
+                    'www/css/style.css': 'www/scss/style.scss'
                 }
             },
             dist: {
@@ -27,14 +27,15 @@ module.exports = function (grunt) {
                     style: 'compressed'
                 },
                 files: {
-                    'dist/jss/main.css': 'wwww/scss/main.scss'
+                    'dist/jss/style.css': 'www/scss/style.scss'
                 }
             }
         },
 
         jshint: {
             files: {
-                src: ['www/js/*.js', 'www/js/**/*js']
+                src: ['www/js/*.js', 'www/js/**/*js',
+                    '!www/js/ie8-responsive-file-warning.js','!www/js/ie10-viewport-bug-workaround.js','!www/js/ie-emulation-modes-warning.js']
             }
         },
 
@@ -117,30 +118,36 @@ module.exports = function (grunt) {
         },
 
         connect: {
+            options: {
+                hostname: 'localhost',
+                livereload: 35729,
+                keepalive: false,
+                open: true
+            },
             dev: {
-                host: 'localhost',
-                port: 9999,
-                base: 'www',
-                liverreload: true
+                options: {
+                    port: 9999,
+                    base: 'www'
+                }
             },
             dist: {
-                host: 'localhost',
-                port: 9998,
-                base: 'dist',
-                keepalive: true
+                options: {
+                    port: 9998,
+                    base: 'dist'
+                }
             }
         },
 
         watch: {
             options: {
-                spawn: false
+                livereload: 35729,
+                reload: true
             },
             dev: {
-                files: ['www/*'],
+                files: ['www/*','www/**/*'],
                 tasks: [
                     'jshint',
-                    'sass:dev',
-                    'connect:dev'
+                    'sass:dev'
                 ]
             }
         }
@@ -151,6 +158,12 @@ module.exports = function (grunt) {
     grunt.registerTask('install', [
         'bower:install',
         'copy:bootstrap'
+    ]);
+    grunt.registerTask('watch-dev',[
+        'jshint',
+        'sass:dev',
+        'connect:dev',
+        'watch:dev'
     ]);
     grunt.registerTask('build', [
         'test',
