@@ -141,10 +141,10 @@ module.exports = function (grunt) {
         watch: {
             options: {
                 livereload: 35729,
-                reload: true
+                debounceDelay: 1000
             },
             dev: {
-                files: ['www/*','www/**/*'],
+                files: ['www/*.html','www/**/*.scss','www/**/*.js'],
                 tasks: [
                     'jshint',
                     'sass:dev'
@@ -160,8 +160,6 @@ module.exports = function (grunt) {
         'copy:bootstrap'
     ]);
     grunt.registerTask('watch-dev',[
-        'jshint',
-        'sass:dev',
         'connect:dev',
         'watch:dev'
     ]);
