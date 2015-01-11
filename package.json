@@ -1,6 +1,6 @@
 {
 	"name": "project-scarffold",
-	"version": "0.0.2",
+	"version": "0.1.0",
 	"description": "Grundeinstellung fuer neue Websites",
 	"main": "index.js",
 	"scripts": {
