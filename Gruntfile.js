@@ -19,7 +19,7 @@ module.exports = function (grunt) {
 					style: 'expanded'
 				},
 				files: {
-					'www/css/style.css': 'www/scss/style.scss'
+					'www/css/style.css': 'scss/style.scss'
 				}
 			},
 			dist: {
@@ -27,7 +27,7 @@ module.exports = function (grunt) {
 					style: 'compressed'
 				},
 				files: {
-					'dist/jss/style.css': 'www/scss/style.scss'
+					'dist/jss/style.css': 'scss/style.scss'
 				}
 			}
 		},
@@ -143,10 +143,32 @@ module.exports = function (grunt) {
 				livereload: 35729,
 				debounceDelay: 1000
 			},
-			dev: {
-				files: ['www/*.html', 'www/**/*.scss', 'www/**/*.js'],
+			webdev: {
+				files: [
+					'www/*.*', 'www/**/*.*',
+					'!www/css/*.*', '!www/css/*.css.map',
+					'www/*.html', 'www/**/*.html',
+					'www/*.js', 'www/**/*.js',
+					'scss/*.scss', 'scss/**/*.scss'
+				],
 				tasks: [
 					'jshint',
+					'sass:dev'
+				]
+			},
+			htmldev: {
+				files: ['www/*.html', 'www/**/*.html'],
+				tasks: []
+			},
+			jsdev: {
+				files: ['www/*.js', 'www/**/*.js'],
+				tasks: [
+					'jshint'
+				]
+			},
+			sassdev: {
+				files: ['scss/*.scss', 'scss/**/*.scss'],
+				tasks: [
 					'sass:dev'
 				]
 			}
@@ -161,7 +183,7 @@ module.exports = function (grunt) {
 	]);
 	grunt.registerTask('watch-dev', [
 		'connect:dev',
-		'watch:dev'
+		'watch:webdev'
 	]);
 	grunt.registerTask('build', [
 		'test',

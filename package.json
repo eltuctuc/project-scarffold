@@ -1,37 +1,41 @@
 {
-  "name": "project-scarffold",
-  "version": "0.0.1",
-  "description": "Grundeinstellung fuer neue Websites",
-  "main": "index.js",
-  "scripts": {
-    "postinstall": "bower install",
-    "test": "grunt test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://eltuctuc@github.com/eltuctuc/project-scarffold.git"
-  },
-  "author": "Enrico Reinsdorf",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/eltuctuc/project-scarffold/issues"
-  },
-  "homepage": "https://github.com/eltuctuc/project-scarffold",
-  "devDependencies": {
-    "bower": "^1.3.12",
-    "grunt": "^0.4.5",
-    "grunt-bower-task": "^0.4.0",
-    "grunt-contrib-clean": "^0.6.0",
-    "grunt-contrib-compress": "^0.12.0",
-    "grunt-contrib-connect": "^0.9.0",
-    "grunt-contrib-copy": "^0.7.0",
-    "grunt-contrib-htmlmin": "^0.3.0",
-    "grunt-contrib-jshint": "^0.10.0",
-    "grunt-contrib-sass": "^0.8.1",
-    "grunt-contrib-uglify": "^0.6.0",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-html-build": "^0.3.2",
-    "karma": "^0.12.28",
-    "load-grunt-tasks": "^1.0.0"
-  }
+	"name": "project-scarffold",
+	"version": "0.0.2",
+	"description": "Grundeinstellung fuer neue Websites",
+	"main": "index.js",
+	"scripts": {
+		"postinstall": "bower install",
+		"test": "grunt test"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://eltuctuc@github.com/eltuctuc/project-scarffold.git"
+	},
+	"author": "Enrico Reinsdorf",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/eltuctuc/project-scarffold/issues"
+	},
+	"homepage": "https://github.com/eltuctuc/project-scarffold",
+	"devDependencies": {
+		"bower": "^1.3.12",
+		"compass": "^0.1.0",
+		"grunt": "^0.4.5",
+		"grunt-bower-task": "^0.4.0",
+		"grunt-contrib-clean": "^0.6.0",
+		"grunt-contrib-compress": "^0.12.0",
+		"grunt-contrib-connect": "^0.9.0",
+		"grunt-contrib-copy": "^0.7.0",
+		"grunt-contrib-htmlmin": "^0.3.0",
+		"grunt-contrib-jshint": "^0.10.0",
+		"grunt-contrib-sass": "^0.8.1",
+		"grunt-contrib-uglify": "^0.6.0",
+		"grunt-contrib-watch": "^0.6.1",
+		"grunt-html-build": "^0.3.2",
+		"karma": "^0.12.28",
+		"load-grunt-tasks": "^1.0.0"
+	},
+	"script": {
+		"postscript": "bower install"
+	}
 }
